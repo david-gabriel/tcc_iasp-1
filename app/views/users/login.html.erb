@@ -1,0 +1,13 @@
+<h1>Acesso à Área Administrativa</h1>  
+
+<%= form_tag do %>
+
+<%= label(:user, :email, 'Email:')%>
+<%= email_field(:user, :email, :size => 20) %>
+
+<%= label(:user, :password, 'Senha:')%>
+<%= password_field(:user, :password, :size => 5)%>
+
+<%= submit_tag('Acessar')%>
+
+<% end %>
