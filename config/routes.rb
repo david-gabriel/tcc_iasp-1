@@ -18,7 +18,7 @@ TccIasp::Application.routes.draw do
   #match 'sair' => 'users#logout'
   
   namespace :admin do
-    resources :products
+    resources :products, :categories
   end
 
   # Sample resource route with options:

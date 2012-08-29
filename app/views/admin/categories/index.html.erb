@@ -1,0 +1,27 @@
+<h1>Categorias</h1>
+
+<%= form_for [:admin, @category] do |f| %>
+
+<%= f.label :name, 'Nome:' %>
+<%= f.text_field :name %>
+
+<%= f.label :parent_id, 'Categoria:'%>
+
+<%= f.submit 'Salvar' %>
+
+<% end %>
+
+<table>
+    <tr>
+        <th>Nome</th>
+    </tr>
+    <tr>
+    </tr>
+    <% @categories.each do |c| %>
+    <tr>
+        <td>
+            <%= c.name %>
+        </td>
+    </tr>    
+    <% end %>
+</table>
