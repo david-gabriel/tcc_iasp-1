@@ -1,0 +1,23 @@
+<%= flash_message %>
+
+<% if @category.errors.any? %>
+    <ul>
+    <% @category.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_for [:admin, @category] do |f| %>
+
+<%= f.label :name, 'Nome:' %>
+<%= f.text_field :name %>
+
+<%= f.label :parent_id, 'Categoria:'%>
+
+<%= f.label :description, 'Descrição:' %>
+<%= f.text_area :description %>
+
+<%= f.submit 'Salvar', :class => 'btn' %>
+
+<% end %>

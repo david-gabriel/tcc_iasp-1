@@ -1,29 +1,6 @@
 <h1>Categorias</h1>
 
-<%= flash_message %>
-
-<% if @category.errors.any? %>
-    <ul>
-    <% @category.errors.full_messages.each do |e| %>
-        <li><%= e %></li>
-    <% end %>
-    </ul>
-<% end %>
-
-
-<%= form_for [:admin, @category] do |f| %>
-
-<%= f.label :name, 'Nome:' %>
-<%= f.text_field :name %>
-
-<%= f.label :parent_id, 'Categoria:'%>
-
-<%= f.label :description, 'Descrição:' %>
-<%= f.text_area :description %>
-
-<%= f.submit 'Salvar', :class => 'btn' %>
-
-<% end %>
+<%= render :partial => 'form' %>
 
 <table class="table">
     <tr>
@@ -36,8 +13,12 @@
         <td>
             <%= c.name %>
         </td>
-        <td></td>
-        <td></td>
+        <td>
+            <%= link_to 'Editar', edit_admin_category_path(c.id) %>
+        </td>
+        <td>
+            <%= link_to 'Excluir', admin_category_path(c.id), :method => :delete, :confirm => 'Tem certeza?' %>
+        </td>
     </tr>    
     <% end %>
 </table>
