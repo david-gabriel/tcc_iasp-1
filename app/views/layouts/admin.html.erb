@@ -2,25 +2,37 @@
 <html>
 <head>
   <title>Área Administrativa</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag  'application', 'bootstrap', :media => "all" %>
+  <%= javascript_include_tag 'application', 'bootstrap' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+    
+</header>
 
 <% if flash[:error] %>
-    <p class="error"><%= flash[:error] %></p>
+    <!--
+        <p class="error"><%= flash[:error] %></p>
+    -->
 <% end %>
 
 <% if flash[:notice] %>
+    <!--
     <p class="notice"><%= flash[:notice] %></p>
+    -->
 <% end %>
 
 Área administrativa
 
 <%= link_to 'Sair', '/users/logout' %>
 
-<%= yield %>
+<div role="main">
+    <%= yield %>
+</div>
 
+<footer>
+    
+</footer>
 </body>
 </html>

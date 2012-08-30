@@ -1,5 +1,16 @@
 <h1>Categorias</h1>
 
+<%= flash_message %>
+
+<% if @category.errors.any? %>
+    <ul>
+    <% @category.errors.full_messages.each do |e| %>
+        <li><%= e %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+
 <%= form_for [:admin, @category] do |f| %>
 
 <%= f.label :name, 'Nome:' %>
@@ -7,21 +18,26 @@
 
 <%= f.label :parent_id, 'Categoria:'%>
 
-<%= f.submit 'Salvar' %>
+<%= f.label :description, 'Descrição:' %>
+<%= f.text_area :description %>
+
+<%= f.submit 'Salvar', :class => 'btn' %>
 
 <% end %>
 
-<table>
+<table class="table">
     <tr>
         <th>Nome</th>
-    </tr>
-    <tr>
+        <th>Editar</th>
+        <th>Excluir</th>
     </tr>
     <% @categories.each do |c| %>
     <tr>
         <td>
             <%= c.name %>
         </td>
+        <td></td>
+        <td></td>
     </tr>    
     <% end %>
 </table>
